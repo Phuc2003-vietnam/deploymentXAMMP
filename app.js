@@ -2,17 +2,16 @@ const express=require('express');
 const app=express();
 const mysql = require('mysql')
 const pool  = mysql.createPool({
-    connectionLimit : 10,
-    host            : 'localhost',
-    user            : 'sManager',
-    password        : 'thien226',
+    host            : '34.92.30.187',
+    user            : 'phuc',
+    password        : '123',
     database        : 'cafe',
     port            : 3306
 })
 
 app.get('/',(req,res)=>{
     pool.getConnection((err, connection)=>{
-        connection.query('SELECT * from doan', (err, rows) => {
+        connection.query('SELECT * from mon', (err, rows) => {
             connection.release() // return the connection to pool
 
             if (!err) {
